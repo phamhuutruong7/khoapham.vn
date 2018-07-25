@@ -9,10 +9,83 @@
 		";
 		
 		$result = mysqli_query($conn, $qr);
-		
-		echo gettype($result), "\n";
-		echo $result ? 'true' : 'false';
 		return $result;
 		
 	}
+	
+	function TinMoiNhat_BonTin(){
+		
+		$conn  	= myConnect();
+		$qr 	= "
+			SELECT * FROM tin 
+			ORDER BY idTin DESC
+			LIMIT 1,6
+		";
+		
+		$result = mysqli_query($conn, $qr);
+		return $result;
+		
+	}
+	
+	function TinXemNhieuNhat(){
+		$conn 	= myConnect();
+		$qr 	= "
+			SELECT * FROM tin
+			ORDER BY SoLanXem DESC
+			LIMIT 0,6
+		";
+		$result = mysqli_query($conn, $qr);
+		return $result;
+
+		}
+		
+	function TinMoiNhat_TheoLoaiTin_MotTin($idLT){
+		$conn 	= myConnect();
+		$qr 	= "
+			SELECT * FROM tin
+			WHERE idLT = $idLT 
+			ORDER BY idTin DESC
+			LIMIT 0,1
+		";
+		$result = mysqli_query($conn, $qr);
+		return $result;
+	}
+	
+	function TinMoiNhat_TheoLoaiTin_BonTin($idLT){
+		$conn 	= myConnect();
+		$qr 	= "
+			SELECT * FROM tin
+			WHERE idLT = $idLT
+			ORDER BY idTin DESC
+			LIMIT 1,6
+		";
+		$result = mysqli_query($conn, $qr);
+		return $result;
+	}
+	
+	function TenLoaiTin($idLT){
+		$conn 	= myConnect();
+		$qr 	="
+			SELECT Ten
+			FROM loaitin
+			WHERE idLT = $idLT
+		";
+		$loaitin = mysqli_query($conn, $qr);
+		$row = mysqli_fetch_array($loaitin);
+		return $row['Ten'];
+	}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 ?>
