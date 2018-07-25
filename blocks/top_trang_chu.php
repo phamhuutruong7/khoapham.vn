@@ -1,10 +1,10 @@
 <div id="slide-left">
 			<?php
             	$tinmoinhat_mottin = TinMoiNhat_MotTin();
-				$row_tinmoinhat_mottin = mysqli_fetch_array($tinmoinhat_mottin, MYSQLI_ASSOC);
+				$row_tinmoinhat_mottin = mysqli_fetch_array($tinmoinhat_mottin);
 			?>
         	<div id="slideleft-main">
-                <img src="upload/tintuc/TauTQok-4351-1406470900_490x294.jpg"  /><br />
+                <img src="upload/tintuc/<?php echo $row_tinmoinhat_mottin['urlHinh']?>"  /><br />
                 <h2 class="title"><a href="#">Trung Quốc tập trận bắn đạn thật gần Việt Nam</a> </h2>
                 <div class="des">
                     Trung Quốc đang tiến hành tập trận bắn đạn thật trên vịnh Bắc Bộ, gần sát Việt Nam và sẽ bắt đầu tập trận tại biển Hoa Đông vào ngày 29/7 tới. 
