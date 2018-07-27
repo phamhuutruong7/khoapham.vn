@@ -143,6 +143,18 @@
 	}
 		
 		
+	function breadCrumb($idLT){
+		$conn 	= myConnect();
+		$qr 	= "
+			SELECT TenTL, Ten
+			FROM theloai, loaitin
+			WHERE theloai.idTL = loaitin.idTL
+			AND idLT = $idLT
+		";
+		$result = mysqli_query($conn, $qr);
+		return $result;
+	}
+		
 		
 		
 ?>
