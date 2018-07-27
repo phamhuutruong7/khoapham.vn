@@ -130,6 +130,17 @@
 		return $result;
 	}
 		
+	function TinTheoLoaiTin($idLT){
+		$conn 	= myConnect();
+		$qr		= "
+			SELECT * FROM tin
+			WHERE idLT = $idLT
+			ORDER BY idTin DESC
+			
+		";
+		$result = mysqli_query($conn, $qr);
+		return $result;	
+	}
 		
 		
 		
