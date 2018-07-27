@@ -106,9 +106,29 @@
 	}
 		
 		
+	function TinMoi_BenTrai($idTL){
+		$conn 	= myConnect();
+		$qr 	= "
+			SELECT * FROM tin
+			WHERE idTL = $idTL
+			ORDER BY idTIN DESC
+			LIMIT 0,1
+		";
+		$result = mysqli_query($conn, $qr);
+		return $result;
+	}
 		
-		
-		
+	function TinMoi_BenPhai($idTL){
+		$conn 	= myConnect();
+		$qr 	= "
+			SELECT * FROM tin
+			WHERE idTL = $idTL
+			ORDER BY idTin DESC
+			LIMIT 1, 2
+		";
+		$result = mysqli_query($conn, $qr);
+		return $result;
+	}
 		
 		
 		
