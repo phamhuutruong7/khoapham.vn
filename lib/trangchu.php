@@ -75,9 +75,35 @@
 		return $row['Ten'];
 	}
 		
+	function QuangCao($vitri){
+		$conn 	= myConnect();
+		$qr 	= "
+			SELECT * FROM quangcao
+			WHERE vitri = $vitri
+		";
+		$result = mysqli_query($conn, $qr);
+		return $result;
+	
+	}
+	
+	function DanhSachTheLoai(){
+		$conn 	= myConnect();
+		$qr		= "
+			SELECT * FROM theloai
+		";
+		$result = mysqli_query($conn, $qr);
+		return $result;
+	}
 		
-		
-		
+	function DanhSachLoaiTin_Theo_TheLoai($idTL){
+		$conn	= myConnect();
+		$qr		="
+			SELECT * FROM loaitin
+			WHERE idTL = $idTL
+		";
+		$result = mysqli_query($conn, $qr);	
+		return $result;
+	}
 		
 		
 		
