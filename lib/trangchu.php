@@ -167,6 +167,15 @@
 		return $result;
 	}
 		
+	function ChiTietTin($idTin){
+		$conn	= myConnect();
+		$qr 	= "
+			SELECT * FROM tin
+			WHERE idTin = $idTin
+		";
+		$result = mysqli_query($conn, $qr);
+		return $result;
+	}
 		
 		
 ?>
