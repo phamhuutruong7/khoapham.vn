@@ -60,7 +60,8 @@ else
             <?php
             	switch($p){
 						case "tintrongloai" : require "pages/tintrongloai.php"; break;
-						case "chitiettin"	: require "pages/chitiettin.php"; break;
+						case "chitiettin"	: require "pages/chitiettin.php"; 	break;
+						case "timkiem"		: require "pages/timkiem.php"; 		break;
 						default 			: require "pages/trangchu.php";
 					}
 			?>

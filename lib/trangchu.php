@@ -191,13 +191,37 @@
 	}
 		
 	function CapNhatSoLanXemTin($idTin){
-			$conn	= myConnect();
-			$qr 	= "
-				UPDATE tin
-				SET SoLanXem = SoLanXem + 1
-				WHERE idTin = $idTin;
-			";
-			$result = mysqli_query($conn, $qr);
+		$conn	= myConnect();
+		$qr 	= "
+			UPDATE tin
+			SET SoLanXem = SoLanXem + 1
+			WHERE idTin = $idTin;
+		";
+		$result = mysqli_query($conn, $qr);
 	}	
+	
+	function TimKiem($tukhoa){
+		$conn	= myConnect();
+		$qr 	= "
+			SELECT * FROM tin
+			WHERE TieuDe REGEXP '$tukhoa'
+			ORDER BY idTin DESC
+		";
+		$result = mysqli_query($conn, $qr);
+		return $result;
+	}
 		
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
