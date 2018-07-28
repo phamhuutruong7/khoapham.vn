@@ -141,6 +141,18 @@
 		$result = mysqli_query($conn, $qr);
 		return $result;	
 	}
+	
+	function TinTheoLoaiTin_PhanTrang($idLT, $from, $sotin1trang){
+		$conn  	= myConnect();
+		$qr		= "
+			SELECT * FROM tin
+			WHERE idLT = $idLT
+			ORDER BY idTin DESC
+			LIMIT $from, $sotin1trang
+		";
+		$result = mysqli_query($conn, $qr);
+		return $result;
+	}
 		
 		
 	function breadCrumb($idLT){
