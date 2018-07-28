@@ -176,6 +176,19 @@
 		$result = mysqli_query($conn, $qr);
 		return $result;
 	}
+	
+	function TinCungLoaiTin($idTin, $idLT){
+		$conn 	= myConnect();
+		$qr		= "
+			SELECT * FROM tin
+			WHERE idTin <> $idTin 
+			AND idLT = $idLT
+			ORDER BY RAND()
+			LIMIT 0,3
+		";
+		$result = mysqli_query($conn, $qr);
+		return $result;
+	}
 		
 		
 ?>
