@@ -190,5 +190,14 @@
 		return $result;
 	}
 		
+	function CapNhatSoLanXemTin($idTin){
+			$conn	= myConnect();
+			$qr 	= "
+				UPDATE tin
+				SET SoLanXem = SoLanXem + 1
+				WHERE idTin = $idTin;
+			";
+			$result = mysqli_query($conn, $qr);
+	}	
 		
 ?>

@@ -5,7 +5,12 @@
 	}else{
 		$idTin = 1;
 	}
-	
+	CapNhatSoLanXemTin($idTin)
+?>
+
+
+
+<?php	
 	$tin = ChiTietTin($idTin);
 	$row_tin = mysqli_fetch_array($tin);
 	
