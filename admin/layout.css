@@ -1,0 +1,22 @@
+/* CSS Document */
+#hangTieuDe{
+	background-color: #09F;
+	color			: white;
+	font-size		: 24px;
+	padding			: 10px;	
+}
+#hang2 a{
+	width			: 150px;
+	padding			: 10px;
+	background-color: #03F;
+	color			: #FFF;
+	font-weight		: bold;
+	display			: block;
+	float			: left;
+	margin-right	: 1px;
+	text-aglin		: center;	
+}
+
+#hang2 a:hover{
+	background-color: #F00;
+}
