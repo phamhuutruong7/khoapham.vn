@@ -21,7 +21,28 @@ function ChiTietTheLoai($idTL){
 	return $row;
 	}
 
-
+//Quan li LoaiTin
+function DanhSachLoaiTin(){
+	$conn 	= myConnect();
+	$qr		= "
+		SELECT * FROM loaitin, theloai
+		WHERE theloai.idTL = loaitin.idTL
+		ORDER BY idLT DESC
+	";
+	$result = mysqli_query($conn, $qr);
+	return $result;
+	}
+	
+function ChiTietLoaiTin($idLT){
+	$conn 	= myConnect();
+	$qr  	= "
+		SELECT * FROM loaitin
+		WHERE idLT = '$idLT'
+	";
+	$query = mysqli_query($conn, $qr);
+	$result = mysqli_fetch_array($query);
+	return $result;
+	}
 
 function stripUnicode($str){
 	if(!$str) return false;
