@@ -39,7 +39,6 @@ ddsmoothmenu.init({
 <span></span>
 </a>
 
-<h2>Example 1</h2>
 
 <div id="smoothmenu1" class="ddsmoothmenu">
 <ul>

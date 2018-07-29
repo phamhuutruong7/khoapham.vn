@@ -1,4 +1,6 @@
 <?php 
+session_start();
+
 require "lib/dbCon.php";
 require "lib/trangchu.php";
 if (isset($_GET["p"]))
@@ -6,6 +8,40 @@ if (isset($_GET["p"]))
 else
 	$p = "";
 
+?>
+
+<?php 
+//kiem tra login
+if(isset($_POST["btnLogin"])){
+	$un = $_POST["txtUn"];
+	$pa = $_POST["txtPa"];
+	$pa = md5($pa);
+	$conn = myConnect();
+	$qr = "
+		SELECT * FROM Users
+		WHERE Username = '$un'
+		AND Password = '$pa'
+	";
+	$user = mysqli_query($conn, $qr);
+	if(mysqli_num_rows($user) == 1){
+		//dang nhap dung
+		$row = mysqli_fetch_array($user);
+		$_SESSION["idUser"] 	= $row['idUser'];
+		$_SESSION["Username"] 	= $row['Username'];
+		$_SESSION["HoTen"] 		= $row['HoTen'];
+		$_SESSION["idGroup"] 	= $row['idGroup'];
+	}
+}
+?>
+<?php 
+	//Thoat
+	if (isset($_POST["btnThoat"])){
+	//		session_destroy();
+		unset($_SESSION["idUser"]);
+		unset($_SESSION["Username"]);
+		unset($_SESSION["HoTen"]);
+		unset($_SESSION["idGroup"]);
+	}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -68,6 +104,14 @@ else
         </div>
         <div id="content-right">
 		<!--blocks/cot_phai.php-->
+        <?php 
+			if(!isset($_SESSION["idUser"])){
+				require "blocks/formLogin.php";
+			}else{
+				require "blocks/formHello.php";
+			}
+		?>
+        
         <?php require "blocks/cot_phai.php";?>
         </div>
 
