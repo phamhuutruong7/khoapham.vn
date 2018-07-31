@@ -131,6 +131,7 @@ function changeTitle($str){
 	
 	//MB_CASE_UPPER / MB_CASE_TITLE/ MB_CASE_LOWER
 	$str = str_replace(' ', '-', $str);
+	$str = str_replace('/', '-', $str);
 	return $str;
 }
 
