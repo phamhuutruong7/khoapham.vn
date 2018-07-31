@@ -43,6 +43,34 @@ function ChiTietLoaiTin($idLT){
 	$result = mysqli_fetch_array($query);
 	return $result;
 	}
+	
+	//Quan tri Tin
+	function DanhSachTin(){
+		$conn	= myConnect();
+		$qr 	= "
+			SELECT tin.*, TenTL, Ten 
+			FROM tin, theloai, loaitin
+			WHERE theloai.idTL = tin.idTL 
+			AND tin.idLT = loaitin.idLT
+			ORDER BY idTin DESC
+			LIMIT 0,20
+		";
+		$result = mysqli_query($conn, $qr);
+		return $result;
+		
+	}
+	function ChiTietTin($idTin){
+		$conn 	= myConnect();
+		$qr 	= "
+			SELECT * FROM tin
+			WHERE idTin = '$idTin'
+		";
+		$query 	= mysqli_query($conn, $qr);
+		$result = mysqli_fetch_array($query);
+		return $result;
+			
+	}
+	
 
 function stripUnicode($str){
 	if(!$str) return false;

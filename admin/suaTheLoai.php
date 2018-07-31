@@ -12,9 +12,9 @@
 	
 ?>
 <?php
-$idTL = $_GET["idTL"];
+	$idTL = $_GET["idTL"];
 	settype($idTL, "int");
-$row_theloai =ChiTietTheLoai($idTL);
+	$row_theloai =ChiTietTheLoai($idTL);
 ?>
 
 <?php 
