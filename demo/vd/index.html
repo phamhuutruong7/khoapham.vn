@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script type="text/javascript" src="../../jquery-slider-master/js/jquery-2.1.0.min.js"></script>
+<script>
+$(document).ready(function(){
+		$("#aaa").click(function(){
+				$.get("a.php", {HoTen:"Teo"}, function(data){
+						$("#noidung").html(data);
+				});
+		});	
+		$("#bbb").click(function(){
+				$.get("b.php", function(data){
+						$("#noidung").html(data);
+				});
+		});	
+		$("#ccc").click(function(){
+				$.get("c.php", function(data){
+						$("#noidung").html(data);
+				});
+		});			
+});
+</script>
+</head>
+
+<body>
+<h1 id="noidung"></h1>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KLeiK0whCdY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<p>
+	<span id="aaa">AAA</span> - 
+    <span id="bbb">BBB</span> - 
+    <span id="ccc">CCC</span>
+</p>
+
+</body>
+</html>
