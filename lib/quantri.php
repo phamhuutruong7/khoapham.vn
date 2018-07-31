@@ -70,6 +70,30 @@ function ChiTietLoaiTin($idLT){
 		return $result;
 			
 	}
+	//Quan tri quang cao
+	function DanhSachQuangCao(){
+		$conn 	= myConnect();
+		$qr 	="
+			SELECT * 
+			FROM quangcao
+			ORDER BY idQC DESC
+			LIMIT 0,20
+		";
+		$result = mysqli_query($conn, $qr);
+		return $result;
+	
+	}
+	function ChiTietQuangCao($idQC){
+		$conn 	= myConnect();
+		$qr 	="
+			SELECT * 
+			FROM quangcao 
+			WHERE idQC = '$idQC'
+		";
+		$query 	= mysqli_query($conn, $qr);
+		$result = mysqli_fetch_array($query);
+		return $result; 
+	}
 	
 
 function stripUnicode($str){
